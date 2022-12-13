@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\TripController;
+use App\Http\Controllers\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -12,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+/*
 Route::get('/', function () {
     return view('welcome');
 });
@@ -47,11 +49,28 @@ Route::prefix('admin')->group(function () {
     Route::get('/destinations',function ($destinations = "destinationsdef"){
         return view('admin.destinations',['destinations'=>$destinations]);
     });
-});
+});*/
+
+Route::get('hello', [ TripController::class, 'index']);
+Route::get('/', [ HomeController::class, 'index']);
+
+Route::get('site',[ HomeController::class, 'homeTravel']);
+
 
 Route::fallback(function () {
     return 'Hm, comment avez-vous atterri ici ?';
 });
+
+
+
+
+
+
+
+
+
+
+
 /*
 1- page welcome laravel
 2- idem
