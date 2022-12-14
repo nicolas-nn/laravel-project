@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TripController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\DestinationController;
+use App\Http\Controllers\ReviewController;
 
 /*
 |--------------------------------------------------------------------------
@@ -49,12 +51,15 @@ Route::prefix('admin')->group(function () {
     Route::get('/destinations',function ($destinations = "destinationsdef"){
         return view('admin.destinations',['destinations'=>$destinations]);
     });
-});*/
+});
 
-Route::get('hello', [ TripController::class, 'index']);
+Route::get('hello', [ TripController::class, 'index']);*/
 Route::get('/', [ HomeController::class, 'index']);
 
 Route::get('site',[ HomeController::class, 'homeTravel']);
+
+Route::resource('destinations', DestinationController::class);
+Route::resource('reviews', ReviewController::class);
 
 
 Route::fallback(function () {

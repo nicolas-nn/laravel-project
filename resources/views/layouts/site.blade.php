@@ -192,10 +192,7 @@
 															<select class="form-control ">
 
 															  	<option value="default">enter your destination country</option><!-- /.option-->
-
-                                                                  @foreach ($destinations as $destination)
-                                                                  <option value="{{ $destination->city }}">{{ $destination->city }}</option><!-- /.option-->
-                                                                  @endforeach
+                                                                @yield('destinationOptions')
 
 															</select><!-- /.select-->
 														</div><!-- /.travel-select-icon -->
@@ -671,19 +668,7 @@
 						  	<div class="filtr-container">
 						  		<div class="row">
 
-                                    @foreach ($destinations as $destination)
-						  			    <div class="col-md-6">
-						  				    <div class="filtr-item">
-											    <img src="images/beach.jpg" alt="portfolio image"/>
-											    <div class="item-title">
-												    <a href="#">
-													    {{ $destination->city }}
-												    </a>
-												<p><span>{{ $destination->tour }}tours</span><span>{{ $destination->place }} places</span></p>
-											    </div><!-- /.item-title -->
-										    </div><!-- /.filtr-item -->
-						  			    </div><!-- /.col -->
-                                    @endforeach
+                                   @yield('destinationCards')
 
 						  			<div class="col-md-6">
 						  				<div class="filtr-item">
@@ -810,47 +795,7 @@
 					<div class="row">
 
                         
-                        @foreach ($packages as $r)
-
-						<div class="col-md-4 col-sm-6">
-							<div class="single-package-item">
-								<img src="images/beach.jpg" alt="package-place">
-								<div class="single-package-item-txt">
-									<h3>{{ $r->title }} <span class="pull-right">${{ $r->price }}</span></h3>
-									<div class="packages-para">
-										<p>
-											<span>
-												<i class="fa fa-angle-right"></i> 3 Days 2 nights
-											</span>
-											<i class="fa fa-angle-right"></i>  5 star accomodation
-										</p>
-										<p>
-											<span>
-												<i class="fa fa-angle-right"></i>  transportation
-											</span>
-											<i class="fa fa-angle-right"></i> food facilities
-										 </p>
-									</div><!--/.packages-para-->
-									<div class="packages-review">
-										<p>
-											<i class="fa fa-star"></i>
-											<i class="fa fa-star"></i>
-											<i class="fa fa-star"></i>
-											<i class="fa fa-star"></i>
-											<i class="fa fa-star"></i>
-											<span>254 reviews</span>
-										</p>
-									</div><!--/.packages-review-->
-									<div class="about-btn">
-										<button  class="about-view packages-btn">
-											book now
-										</button>
-									</div><!--/.about-btn-->
-								</div><!--/.single-package-item-txt-->
-							</div><!--/.single-package-item-->
-
-						</div><!--/.col-->
-                        @endforeach
+                        @yield('packages')
 
 						<div class="col-md-4 col-sm-6">
 							<div class="single-package-item">
@@ -1069,29 +1014,7 @@
 				</div><!--/.gallery-header-->
 
 				<div class="owl-carousel owl-theme" id="testemonial-carousel">
-                    @foreach ($reviews as $r)
-					<div class="home1-testm item">
-						<div class="home1-testm-single text-center">
-							<div class="home1-testm-img">
-								<img src="images/beach.jpg" alt="img"/>
-							</div><!--/.home1-testm-img-->
-							<div class="home1-testm-txt">
-								<span class="icon section-icon">
-									<i class="fa fa-quote-left" aria-hidden="true"></i>
-								</span>
-								<p>
-                                    {{ $r->comments }}								</p>
-								<h3>
-									<a href="#">
-										{{ $r->user }}
-									</a>
-								</h3>
-								<h4>{{ $r->destination }}</h4>
-							</div><!--/.home1-testm-txt-->	
-						</div><!--/.home1-testm-single-->
-
-					</div><!--/.item-->
-                    @endforeach
+                    @yield('reviews')
 					<div class="home1-testm item">
 						<div class="home1-testm-single text-center">
 							<div class="home1-testm-img">
